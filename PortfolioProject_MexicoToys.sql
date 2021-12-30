@@ -76,7 +76,7 @@ ON st.Store_ID = sl.Store_ID
 GROUP BY st.Store_Name
 ORDER BY Total_Units_Sold DESC;
 
---Worst 3 Stores Based On Total_Sales
+--Bottom 3 Stores Based On Total_Sales
 SELECT TOP(3) st.Store_Name, ROUND(SUM(sl.Units_Sold*p.Product_Price),2) AS Total_Sales
 FROM PortfolioProject..Store AS st
 FULL OUTER JOIN PortfolioProject..Sales AS sl
@@ -86,7 +86,7 @@ ON p.Product_ID = sl.Product_ID
 GROUP BY st.Store_Name
 ORDER BY Total_Sales;
 
---Worst 3 Stores Based On Total_Units_Sold
+--Bottom 3 Stores Based On Total_Units_Sold
 SELECT TOP(3) st.Store_Name, SUM(sl.Units_Sold) AS Total_Units_Sold
 FROM PortfolioProject..Store AS st
 FULL OUTER JOIN PortfolioProject..Sales AS sl
